@@ -3,12 +3,16 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="layouts/front_store">
+<head>
+    <meta charset="utf-8" />
+</head>
+    
     <body>
         <div class="container" layout:fragment="content">
             <div class="row">
                 <div class="col-xs-12 col-md-12">
                     <div class="jumbotron">
-                        <h1>Affable Spring Bean!</h1>
+                        <h1>Cung cấp thực phẩm | Nâng tầm cuộc sống!</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
@@ -37,14 +41,14 @@
                                 <img class="img-responsive" th:src="@{|/resources/upload/products/${product.name}.png|}" />
                                 <div class="caption">
                                     <p>
-                                        <b>Name:</b> <span th:text="${product.name}"></span>
+                                        <b>Tên:</b> <span th:text="${product.name}"></span>
                                     </p>
                                     <p>
-                                        <b>Price:</b> <span th:text="|${product.price} USD|"></span>
+                                        <b>Giá:</b> <span th:text="|${product.price} Đồng|"></span>
                                     </p>
                                     <p>
                                         <a th:title="|addItem::${product.id}|" th:href="@{/addToCart(id=${product.id})}" class="btn btn-primary">
-                                            Add to cart
+                                           Thêm vào giỏ
                                         </a>
                                     </p>
                                 </div>

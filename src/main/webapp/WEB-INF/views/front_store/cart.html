@@ -3,14 +3,17 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
 	layout:decorator="layouts/front_store">
+<head>
+    <meta charset="utf-8" />
+</head>
 <body>
 	<div class="container" layout:fragment="content">
 		<div class="row" th:switch="${itemMap.size()}">
 			<div class="col-xs-12 col-md-12" th:case="0">
 				<div class="jumbotron">
-					<h1>Affable Spring Bean!</h1>
+					<h1>Cung cấp thực phẩm | Nâng tầm cuộc sống!</h1>
 					<p>There's no item in your shopping cart!</p>
-					<p><a th:href="@{/}" class="btn btn-warning">Keep Shopping</a></p>
+					<p><a th:href="@{/}" class="btn btn-warning">Tiếp tục Mua</a></p>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-12" th:case="*">
@@ -25,8 +28,8 @@
                                         </table>
 					<p>If you want to remove any item, just update its quantity to 0.</p>
 					<p>
-						<a th:href="@{/}" class="btn btn-info">Keep Shopping</a>
-						<a th:href="@{/checkout}" class="btn btn-warning">Checkout</a>
+						<a th:href="@{/}" class="btn btn-info">Tiếp tục Mua</a>
+						<a th:href="@{/checkout}" class="btn btn-warning">Thanh toán</a>
 					</p>
 				</div>
 			</div>
@@ -34,8 +37,8 @@
 		<div class="row" th:unless="${itemMap.isEmpty()}">
 			<div class="col-xs-12 col-md-4">
 				<div class="jumbotron">
-					<h4 th:text="|Subtotal: ${subTotal} USD|"></h4>
-					<p><a th:href="@{/clearCart}" class="btn btn-danger">Clear Cart</a></p>
+					<h4 th:text="|Subtotal: ${subTotal} Đồng|"></h4>
+					<p><a th:href="@{/clearCart}" class="btn btn-danger">Xóa giở hàng</a></p>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-8">
@@ -44,23 +47,23 @@
 						<thead>
 							<tr>
 								<th></th>
-								<th>Name</th>
-								<th>Price</th>
-								<th>Quantity</th>
+								<th>Tên</th>
+								<th>Giá</th>
+								<th>Số lượng</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr th:each="item : ${itemMap.entrySet()}">
 								<td><img th:src="@{|/resources/upload/products/${item.key.getName()}.png|}" /></td>
 								<td th:text="${item.key.getName()}"></td>
-								<td th:text="|${item.key.getPrice()} USD per Unit|"></td>
+								<td th:text="|${item.key.getPrice()} Đồng"></td>
 								<td>
 									<form th:action="@{/updateCart}" method="POST" class="form-inline">
 										<div class="form-group">
 											<input type="hidden" name="id" th:value="${item.key.getId()}" />
 											<input class="form-control" type="text" name="quantity"	th:value="${item.value}" size="2" maxlength="2" />
 										</div>
-										<button type="submit" class="btn btn-primary">Update</button>
+										<button type="submit" class="btn btn-primary">Cập nhật</button>
 									</form>
 								</td>
 							</tr>

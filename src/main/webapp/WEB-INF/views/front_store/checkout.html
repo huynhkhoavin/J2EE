@@ -3,14 +3,17 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
 	layout:decorator="layouts/front_store">
+<head>
+    <meta charset="utf-8" />
+</head>
 <body>
 	<div class="container" layout:fragment="content">
 		<div class="row" th:switch="${subTotal}">
 			<div class="col-xs-12 col-md-12" th:case="0">
 				<div class="jumbotron">
-					<h1>Affable Spring Bean!</h1>
+					<h1>Cung cấp thực phẩm | Nâng tầm cuộc sống!</h1>
 					<p>There's no item in your shopping cart!</p>
-					<p><a th:href="@{/}" class="btn btn-warning">Keep Shopping</a></p>
+					<p><a th:href="@{/}" class="btn btn-warning">Tiếp tục Mua</a></p>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-12" th:case="*">
@@ -27,7 +30,7 @@
 						<div class="well">
 							<ul>
 								<li><b>Next-day delivery is guaranteed.</b></li>
-								<li><b>A &#36;3.00 delivery surcharge is applied to all	purchase order.</b></li>
+								<li><b>A 10 000đ delivery surcharge is applied to all	purchase order.</b></li>
 							</ul>
 						</div>
 					</div>
@@ -38,23 +41,23 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Subtotal:</strong>
+										<strong>Tổng:</strong>
 									</div>
-									<div class="col-sm-8 text-right" th:text="|${subTotal} USD|"></div>
+									<div class="col-sm-8 text-right" th:text="|${subTotal} Đồng|"></div>
 								</div>
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Delivery surcharge:</strong>
+										<strong>Phí giao hàng:</strong>
 									</div>
-									<div class="col-sm-8 text-right">3.00 USD</div>
+									<div class="col-sm-8 text-right">10 000 Đồng</div>
 								</div>
 							</div>
 							<div class="panel-footer">
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Total:</strong>
+										<strong>Tổng cộng:</strong>
 									</div>
-									<div class="col-sm-8 text-right" th:text="|${total} USD|"></div>
+									<div class="col-sm-8 text-right" th:text="|${total} Đồng|"></div>
 								</div>
 							</div>
 						</div>
@@ -63,8 +66,8 @@
 			</div>
 			<div class="col-xs-12 col-md-6">
 				<ul class="nav nav-tabs" id="checkout-tab">
-					<li class="active"><a data-toggle="tab" href="#member">Member</a></li>
-					<li class=""><a data-toggle="tab" href="#guest">Register</a></li>
+					<li class="active"><a data-toggle="tab" href="#member">Thành viên</a></li>
+					<li class=""><a data-toggle="tab" href="#guest">Đăng ký</a></li>
 				</ul>
 				<div id="checkoutTabContent" class="tab-content well-lg" th:object="${customer}">
 					<input type="hidden" id="validateUrl" th:value="@{/validateMember}" />
@@ -79,7 +82,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button type="submit" class="btn btn-primary">Purchase</button>
+									<button type="submit" class="btn btn-primary">Mua</button>
 								</div>
 							</div>
 						</form>
@@ -88,7 +91,7 @@
 						<div id="valid-guest"></div>
 						<form id="purchase-guest" th:action="@{/purchaseGuest}"	method="POST" class="form-horizontal">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Name</label>
+								<label class="col-sm-3 control-label">Tên</label>
 								<div class="col-sm-9">
 									<input type="text" th:field="*{name}" class="form-control" placeholder="e.g.: Firstname Lastname" />
 								</div>
@@ -100,7 +103,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Phone</label>
+								<label class="col-sm-3 control-label">Điện thoại</label>
 								<div class="col-sm-9">
 									<input type="text" th:field="*{phone}" class="form-control" placeholder="e.g.: 734-555-1212" />
 								</div>
@@ -112,7 +115,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Region</label>
+								<label class="col-sm-3 control-label">Khu vực</label>
 								<div class="col-sm-3">
 									<select th:field="*{cityRegion}" class="form-control">
 										<option th:each="regionKey : ${regions.keySet()}" th:value="${regionKey}" th:text="${regions.get(regionKey)}"></option>
@@ -120,14 +123,14 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Credit Card</label>
+								<label class="col-sm-3 control-label">Số thẻ tín dụng</label>
 								<div class="col-sm-9">
 									<input type="text" th:field="*{ccNumber}" class="form-control" placeholder="e.g.: 0123456789101112131" />
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-3 col-sm-9">
-									<button type="submit" class="btn btn-primary">Purchase</button>
+									<button type="submit" class="btn btn-primary">Mua</button>
 								</div>
 							</div>
 						</form>
