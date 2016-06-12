@@ -1,5 +1,6 @@
 package com.grocerystore.controller;
 
+import com.grocerystore.service.CategoryService;
 import com.grocerystore.service.CustomerService;
 import com.grocerystore.service.MemberService;
 import com.grocerystore.service.OrderService;
@@ -22,6 +23,9 @@ public class AdminConsoleController {
 	
 	@Autowired
 	private OrderService orderService;
+        
+        @Autowired
+        private CategoryService categoryService; 
 	
 	/**
 	 * Auth process
@@ -44,13 +48,28 @@ public class AdminConsoleController {
 		mm.put("customerList", customerService.getAll());
 		return "admin_console/customer";
 	}
-	
+        
+        
+        
+        
+        @RequestMapping(value = "/category", method = RequestMethod.GET)
+        public String categoryConsole(ModelMap mm) {
+            mm.put("categoryList", categoryService.getAll());
+            return "admin_console/category";
+        }
+        
+        
+        
+        
 	@RequestMapping(value = "/member", method = RequestMethod.GET)
 	public String memberConsole(ModelMap mm) {
 		mm.put("memberList", memberService.getAll());
 		return "admin_console/member";
 	}
-	
+        
+        
+        
+        
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
 	public String orderConsole(ModelMap mm) {
 		mm.put("orderList", orderService.getAll());
