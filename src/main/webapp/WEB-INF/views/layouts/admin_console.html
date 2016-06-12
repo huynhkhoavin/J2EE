@@ -36,12 +36,12 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<div class="navbar-brand">Administrator Console</div>
+				<div class="navbar-brand">TRANG QUẢN TRỊ</div>
 			</div>
 			<form id="f_logout" method="POST" th:action="@{/admin/logout}">
 				<ul class="nav navbar-top-links navbar-right">
 					<li class="dropdown">
-						<a><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+						<a><i class="fa fa-sign-out fa-fw"></i> Thoát</a>
 					</li>
 				</ul>
 			</form>
@@ -61,20 +61,20 @@
 						</div>
 					</li>
 					<li sec:authorize="hasRole('ROLE_ADMIN')">
-						<a href="#"><i class="fa fa-group fa-fw"></i> Administrator<span class="fa arrow"></span></a>
+						<a href="#"><i class="fa fa-group fa-fw"></i> QUẢN TRỊ<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
 							<li><a th:href="@{/admin/member}">Thành Viên</a></li>
 						</ul>
 					</li>
 					<li sec:authorize="hasRole('ROLE_USER')">
-						<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý bán hàng<span class="fa arrow"></span></a>
+						<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> QUẢN LÝ BÁN HÀNG <span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
 							<li><a th:href="@{/admin}">Khách hàng</a></li>
 							<li><a th:href="@{/admin/order}">Hóa đơn</a></li>
 						</ul>
 					</li>
 					<li sec:authorize="hasRole('ROLE_ADMIN')">
-						<a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Quản lý kho <span class="fa arrow"></span></a>
+						<a href="#"><i class="fa fa-shopping-cart fa-fw"></i> QUẢN LÝ KHO <span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
 							<li><a th:href="@{/admin/category}">Danh mục</a></li>
 							<li><a href="#">Sản phẩm</a></li>

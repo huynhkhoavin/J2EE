@@ -3,12 +3,15 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
 	layout:decorator="layouts/front_store">
+<head>
+    <meta charset="utf-8" />
+</head>
 <body>
 	<div class="container" layout:fragment="content">
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
 				<div class="jumbotron">
-					<h1>Affable Spring Bean!</h1>
+					<h1>Cung cấp thực phẩm | Nâng tầm cuộc sống!</h1>
 					<p><strong>Your order has been successfully processed and will be delivered within 24 hours.</strong></p>
 					<p>Please keep a note on your confirmation number.</p>
 					<p>If you have any concerns, feel free to contact us.</p>
@@ -22,38 +25,38 @@
 					<div class="col-xs-12 col-md-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Order Summary</h3>
+								<h3 class="panel-title">Thông tin tóm tăt</h3>
 							</div>
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Order reference:</strong>
+										<strong>Đơn hàng:</strong>
 									</div>
 									<div class="col-sm-8 text-right" th:text="${order.confirmationNumber}"></div>
 								</div>
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Date processed:</strong>
+										<strong>Ngày tạo:</strong>
 									</div>
 									<div class="col-sm-8 text-right" th:text="${order.dateCreated}"></div>
 								</div>
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Subtotal:</strong>
+										<strong>Giá trị:</strong>
 									</div>
-									<div class="col-sm-8 text-right" th:text="|${subTotal} USD|"></div>
+									<div class="col-sm-8 text-right" th:text="|${subTotal} Đồng|"></div>
 								</div>
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Delivery surcharge:</strong>
+										<strong>Phí giao hàng:</strong>
 									</div>
-									<div class="col-sm-8 text-right">3.00 USD</div>
+									<div class="col-sm-8 text-right">10 000 Đồng</div>
 								</div>
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Total:</strong>
+										<strong>Tổng cộng:</strong>
 									</div>
-									<div class="col-sm-8 text-right" th:text="|${total} USD|"></div>
+									<div class="col-sm-8 text-right" th:text="|${total} Đồng|"></div>
 								</div>
 							</div>
 						</div>
@@ -63,12 +66,12 @@
 					<div class="col-xs-12 col-md-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Delivery Details</h3>
+								<h3 class="panel-title">Chi tiết giao hàng</h3>
 							</div>
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Name:</strong>
+										<strong>Tên:</strong>
 									</div>
 									<div class="col-sm-8 text-right" th:text="${customer.name}"></div>
 								</div>
@@ -80,25 +83,25 @@
 								</div>
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Phone:</strong>
+										<strong>Điện thoại: </strong>
 									</div>
 									<div class="col-sm-8 text-right" th:text="${customer.phone}"></div>
 								</div>
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Address:</strong>
+										<strong>Địa chỉ:</strong>
 									</div>
 									<div class="col-sm-8 text-right" th:text="${customer.address}"></div>
 								</div>
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Region:</strong>
+										<strong>Khu vực:</strong>
 									</div>
 									<div class="col-sm-8 text-right" th:text="${customer.cityRegion}"></div>
 								</div>
 								<div class="row">
 									<div class="col-sm-4 text-right">
-										<strong>Credit card number:</strong>
+										<strong>Số thẻ tín dụng:</strong>
 									</div>
 									<div class="col-sm-8 text-right" th:text="${customer.ccNumber}"></div>
 								</div>
@@ -112,9 +115,9 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr class="active">
-								<th class="text-center">Name</th>
-								<th class="text-center">Price</th>
-								<th class="text-center">Quantity</th>
+								<th class="text-center">Tên</th>
+								<th class="text-center">Giá</th>
+								<th class="text-center">Số lượng</th>
 							</tr>
 						</thead>
 						<tbody>

@@ -74,7 +74,7 @@ public class Cart implements java.io.Serializable {
 	
 	public double calculateTotal(double subTotal) {
 		DecimalFormat form = new DecimalFormat("#.##");
-		return Double.valueOf(form.format(subTotal + 3));
+		return Double.valueOf(form.format(subTotal + 10000));
 	}
 	
 	public Integer sumQuantity() {
