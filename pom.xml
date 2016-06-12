@@ -7,10 +7,10 @@
 	<packaging>war</packaging>
 	<version>2.1.2</version>
 	<properties>
+                <skipTests>true</skipTests>
 		<org.springframework-version>4.1.6.RELEASE</org.springframework-version>
 		<org.springsecurity-version>4.0.0.RELEASE</org.springsecurity-version>
 		<org.springdatajpa-version>1.8.0.RELEASE</org.springdatajpa-version>
-		<org.slf4j-version>1.7.12</org.slf4j-version>
 		<org.hibernate-version>4.3.9.Final</org.hibernate-version>
 		<org.thymeleaf-version>2.1.4.RELEASE</org.thymeleaf-version>
 	</properties>
@@ -117,23 +117,6 @@
 
 		<!-- Logging -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${org.slf4j-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
@@ -172,44 +155,8 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<!-- Test -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${org.springframework-version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>1.10.19</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>1.7.1</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 	<build>
-		<testResources>
-			<testResource>
-				<!-- declared explicitly so Spring config files can be placed next to 
-					their corresponding JUnit test class (see example with ValidatorTests) -->
-				<directory>${project.basedir}/src/test/java</directory>
-			</testResource>
-			<testResource>
-				<directory>${project.basedir}/src/test/resources</directory>
-			</testResource>
-		</testResources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -223,6 +170,9 @@
 					</additionalBuildcommands>
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
+                                        <configuration>
+                                            <skipTests>${skipTests}</skipTests>
+                                        </configuration>    
 				</configuration>
 			</plugin>
 			<plugin>
