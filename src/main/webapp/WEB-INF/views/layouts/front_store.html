@@ -31,29 +31,22 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" th:href="@{/}">Foods</a>
+					<a class="navbar-brand" th:href="@{/}">Trang Chủ</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li>
 							<input id="getCartSize" type="hidden" th:value="@{/getCartSize}" />
-							<a th:href="@{/cart}"> Cart <span id="nav-cart-size" class="badge"></span></a>
+							<a th:href="@{/cart}"> Giỏ hàng <span id="nav-cart-size" class="badge"></span></a>
 						</li>
-						<li><a th:href="@{/checkout}">Checkout &#x279f;</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle"	data-toggle="dropdown">Languages<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">English</a></li>
-								<li><a href="#">Deutschland</a></li>
-							</ul>
-						</li>
+						<li><a th:href="@{/checkout}">Thanh Toán &#x279f;</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		
 		<div class="container" layout:fragment="content">
-			<section><h1>GUTEN MORGEN!!!</h1></section>
+			<section><h1>G17 team!!!</h1></section>
 		</div>
 	</div>
 	
