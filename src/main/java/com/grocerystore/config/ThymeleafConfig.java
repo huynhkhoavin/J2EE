@@ -8,9 +8,10 @@ import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-
+import org.thymeleaf.spring4.view.AjaxThymeleafViewResolver;
 import java.util.HashSet;
 import java.util.Set;
+
 
 @Configuration
 public class ThymeleafConfig {
@@ -35,7 +36,7 @@ public class ThymeleafConfig {
 		engine.setAdditionalDialects(dialects);
 		return engine;
 	}
-
+        
 	@Bean
 	public ThymeleafViewResolver thymeleafViewResolver() {
 		ThymeleafViewResolver resolver = new ThymeleafViewResolver();
@@ -44,5 +45,4 @@ public class ThymeleafConfig {
                 resolver.setContentType("text/html; charset=UTF-8");
 		return resolver;
 	}
-	
 }

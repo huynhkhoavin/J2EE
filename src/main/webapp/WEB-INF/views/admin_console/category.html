@@ -5,6 +5,35 @@
 	  layout:decorator="layouts/admin_console">
 <head>
     <meta charset="utf-8" />
+    	<SCRIPT language="javascript">
+		function addRow(tableID) {
+			var table = document.getElementById(tableID);
+			var rowCount = table.rows.length;
+			var row = table.insertRow(rowCount);
+			var cell1 = row.insertCell(0);
+			var element1 = document.createElement("input");
+			element1.type = "checkbox";
+			element1.name="chkbox[]";
+			cell1.appendChild(element1);
+			var cell2 = row.insertCell(1);
+			cell2.innerHTML = rowCount;
+			var cell3 = row.insertCell(2);
+			var element2 = document.createElement("input");
+			element2.type = "text";
+			element2.name = "txtbox[]";
+			cell3.appendChild(element2);
+		}
+               function deleteRow(tableID) {
+			try {
+			var table = document.getElementById(tableID);
+			var rowCount = table.rows.length;
+                        if(table.rows.length>0)
+                        table.deleteRow(table.rows.length-1);
+			}catch(e) {
+				alert(e);
+			}
+		}
+        </SCRIPT>        
 </head>
 <body>
 	<div id="page-wrapper" layout:fragment="content">
@@ -29,6 +58,33 @@
 									<tr class="odd gradeX" th:each="category : ${categoryList}">
 										<td th:text="${category.name}"></td>
 										
+									</tr>
+								</tbody>
+							</table>
+                                                    <hr> </hr>
+                                                    <table>
+                                                        <td>
+                                                             <INPUT type="button" value="+" onclick="addRow('dataTable')" class = "btn btn-lg btn-success btn-block" style = " width: 50px"/>
+                                                        </td>
+                                                        <td>
+                                                            <INPUT type="button" value="-" onclick="deleteRow('dataTable')" class = "btn btn-lg btn-success btn-block" style = " width: 50px"/>
+                                                        </td>
+                                                    </table>
+                                                       
+							<table class="table table-striped table-bordered table-hover" id="dataTable">
+								<thead>
+									<tr>
+                                                                                <th>Chọn</th>
+                                                                                <th>Số thứ tự</th>            
+										<th>Tên</th>
+                                                                                
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="odd gradeX">
+                                                                            <TD><INPUT type="checkbox" name="chk"/></TD>
+                                                                        <TD> 1 </TD>
+                                                                        <TD> <INPUT type="text" /> </TD>
 									</tr>
 								</tbody>
 							</table>
