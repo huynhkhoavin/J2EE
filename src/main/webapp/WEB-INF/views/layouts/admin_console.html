@@ -30,13 +30,11 @@
 	<div id="wrapper">
 		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<div class="navbar-brand">TRANG QUẢN TRỊ</div>
+                            <div class="navbar-brand">QUẢN TRỊ</div>
+                            <ul class="nav navbar-nav">
+                                <li><a th:href="@{/admin/}">TRANG CHỦ</a></li>
+                                <li><a th:href="@{/}">XEM TRANG</a></li>
+                            </ul>
 			</div>
 			<form id="f_logout" method="POST" th:action="@{/admin/logout}">
 				<ul class="nav navbar-top-links navbar-right">
@@ -69,7 +67,7 @@
 					<li sec:authorize="hasRole('ROLE_USER')">
 						<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> QUẢN LÝ BÁN HÀNG <span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
-							<li><a th:href="@{/admin}">Khách hàng</a></li>
+							<li><a th:href="@{/admin/customer}">Khách hàng</a></li>
 							<li><a th:href="@{/admin/order}">Hóa đơn</a></li>
 						</ul>
 					</li>

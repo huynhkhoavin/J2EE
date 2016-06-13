@@ -5,6 +5,7 @@ import com.grocerystore.service.CustomerService;
 import com.grocerystore.service.MemberService;
 import com.grocerystore.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,12 +45,27 @@ public class AdminConsoleController {
 	 * Login succeeded, inside AdminConsole
 	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String customerConsole(ModelMap mm) {
-		mm.put("customerList", customerService.getAll());
-		return "admin_console/customer";
+	public String homeConsole(ModelMap mm) {
+		return "admin_console/home";
 	}
         
         
+        @RequestMapping(value = "/customer", method = RequestMethod.GET)
+        public String customerConsole(ModelMap mm) {
+            mm.put("customerList", customerService.getAll());
+            return "admin_console/customer";
+        }
+        
+        @RequestMapping(value = "/showSODetail", method = RequestMethod.GET)
+	public String showSODetail(@RequestParam("id") String id, ModelMap mm) {
+		mm.put("test", id);
+                System.out.println("****************************************");
+                System.out.println("****************************************");
+                System.out.println(id);
+                System.out.println("****************************************");
+                System.out.println("****************************************");
+		return "admin_console/customer";
+	}
         
         
         @RequestMapping(value = "/category", method = RequestMethod.GET)
