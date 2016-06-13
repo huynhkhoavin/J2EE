@@ -1,12 +1,8 @@
 package com.grocerystore.controller;
 
-import com.grocerystore.service.OrderedProductService;
-import com.grocerystore.service.CustomerService;
-import com.grocerystore.service.CategoryService;
-import com.grocerystore.service.ProductService;
-import com.grocerystore.service.OrderService;
 import com.grocerystore.domain.CustomerOrder;
 import com.grocerystore.domain.Product;
+import com.grocerystore.service.*;
 import com.grocerystore.service.Cart;
 import com.grocerystore.util.RegionHashMap;
 import com.grocerystore.domain.Customer;
@@ -50,11 +46,12 @@ public class FrontStoreController {
 
     @RequestMapping(value = "/category", method = RequestMethod.GET)
     public String category(@RequestParam("id") Byte id, ModelMap mm) {
-       
+        mm.put("productList", productService.getByCategoryId(id));
         mm.put("categoryList", categoryService.getAll());
         mm.put("id", id);
         return "front_store/category";
     }
+
     /**
      * CRUD on shopping cart
      */
