@@ -44,13 +44,16 @@ public class AdminConsoleController {
 	 * Login succeeded, inside AdminConsole
 	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String customerConsole(ModelMap mm) {
-		mm.put("customerList", customerService.getAll());
-		return "admin_console/customer";
+	public String homeConsole(ModelMap mm) {
+		return "admin_console/home";
 	}
         
         
-        
+        @RequestMapping(value = "/customer", method = RequestMethod.GET)
+        public String customerConsole(ModelMap mm) {
+            mm.put("customerList", customerService.getAll());
+            return "admin_console/customer";
+        }
         
         @RequestMapping(value = "/category", method = RequestMethod.GET)
         public String categoryConsole(ModelMap mm) {

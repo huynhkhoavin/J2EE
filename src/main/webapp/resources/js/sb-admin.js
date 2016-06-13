@@ -1,5 +1,11 @@
-$(function() {
 
+$(function() {
+    $('#table_id tr').clíck(function(){
+        
+    });
+});
+
+$(function() {
     $('#side-menu').metisMenu();
     $('#dataTables-example').dataTable();
     $('#f_logout').click(function() {
