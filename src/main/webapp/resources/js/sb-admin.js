@@ -1,7 +1,19 @@
 
 $(function() {
-    $('#table_id tr').clíck(function(){
-        
+    $('#ad_insert').click(function(){
+        var id = 112233;
+        $.ajax({
+            type: "GET",
+            url: "showSODetail",
+            data: { 'id': id },
+            success: function () {
+                $("#ad_edit").css('display','none');
+                alert(id);
+            },
+            error: function (err) {
+                alert(err);
+            }
+        })
     });
 });
 
