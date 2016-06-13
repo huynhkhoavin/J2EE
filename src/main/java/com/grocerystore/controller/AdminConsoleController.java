@@ -4,6 +4,7 @@ import com.grocerystore.service.CategoryService;
 import com.grocerystore.service.CustomerService;
 import com.grocerystore.service.MemberService;
 import com.grocerystore.service.OrderService;
+import com.grocerystore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,8 @@ public class AdminConsoleController {
         @Autowired
         private CategoryService categoryService; 
 	
+        @Autowired
+        private ProductService productService;
 	/**
 	 * Auth process
 	 */
@@ -48,14 +51,16 @@ public class AdminConsoleController {
 	public String homeConsole(ModelMap mm) {
 		return "admin_console/home";
 	}
-        
-        
         @RequestMapping(value = "/customer", method = RequestMethod.GET)
         public String customerConsole(ModelMap mm) {
             mm.put("customerList", customerService.getAll());
             return "admin_console/customer";
         }
-        
+         @RequestMapping(value = "/product", method = RequestMethod.GET)
+            public String productConsole(ModelMap mm) {
+        mm.put("productList", productService.getAll());
+        return "admin_console/product";
+    }
         @RequestMapping(value = "/showSODetail", method = RequestMethod.GET)
 	public String showSODetail(@RequestParam("id") String id, ModelMap mm) {
 		mm.put("test", id);
@@ -66,7 +71,6 @@ public class AdminConsoleController {
                 System.out.println("****************************************");
 		return "admin_console/customer";
 	}
-        
         
         @RequestMapping(value = "/category", method = RequestMethod.GET)
         public String categoryConsole(ModelMap mm) {

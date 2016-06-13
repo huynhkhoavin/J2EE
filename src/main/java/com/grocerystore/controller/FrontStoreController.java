@@ -50,12 +50,11 @@ public class FrontStoreController {
 
     @RequestMapping(value = "/category", method = RequestMethod.GET)
     public String category(@RequestParam("id") Byte id, ModelMap mm) {
-        mm.put("productList", productService.getByCategoryId(id));
+       
         mm.put("categoryList", categoryService.getAll());
         mm.put("id", id);
         return "front_store/category";
     }
-
     /**
      * CRUD on shopping cart
      */
