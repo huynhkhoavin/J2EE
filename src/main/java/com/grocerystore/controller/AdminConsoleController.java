@@ -4,6 +4,7 @@ import com.grocerystore.service.CategoryService;
 import com.grocerystore.service.CustomerService;
 import com.grocerystore.service.MemberService;
 import com.grocerystore.service.OrderService;
+import com.grocerystore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,8 @@ public class AdminConsoleController {
         @Autowired
         private CategoryService categoryService; 
 	
+        @Autowired
+        private ProductService productService;
 	/**
 	 * Auth process
 	 */
@@ -48,21 +51,21 @@ public class AdminConsoleController {
 	public String homeConsole(ModelMap mm) {
 		return "admin_console/home";
 	}
+
         
+    @RequestMapping(value = "/customer", method = RequestMethod.GET)
+    public String customerConsole(ModelMap mm) {
+        mm.put("customerList", customerService.getAll());
+        return "admin_console/customer";
+    }
         
-        @RequestMapping(value = "/customer", method = RequestMethod.GET)
-        public String customerConsole(ModelMap mm) {
-            mm.put("customerList", customerService.getAll());
-            return "admin_console/customer";
-        }
-        
-        @RequestMapping(value = "/insertCustomer", method = RequestMethod.GET)
+    @RequestMapping(value = "/insertCustomer", method = RequestMethod.GET)
 	public String insertCustomer(ModelMap mm) {
                 mm.put("customerList", customerService.getAll());
 		return "admin_console/customer_insert";
 	}
         
-        @RequestMapping(value = "/custdetail", method = RequestMethod.GET)
+    @RequestMapping(value = "/custdetail", method = RequestMethod.GET)
 	public String customerDetail(@RequestParam("id") Integer id, ModelMap mm) {
                 mm.put("custID", id);
                 mm.put("customerList", customerService.getAll());
@@ -70,50 +73,66 @@ public class AdminConsoleController {
 		return "admin_console/customer_detail";
 	}
         
-        @RequestMapping(value = "/custdelete", method = RequestMethod.GET)
-        public String custdelete(@RequestParam("id") Integer id, ModelMap mm) {
-                mm.put("customerList", customerService.getAll());
+    @RequestMapping(value = "/custdelete", method = RequestMethod.GET)
+    public String custdelete(@RequestParam("id") Integer id, ModelMap mm) {
+            mm.put("customerList", customerService.getAll());
 		return "admin_console/customer";
 	}
         
-        @RequestMapping(value = "/editCustomer", method = RequestMethod.GET)
-	public String editCustomer(
-                @RequestParam("id") String id, 
-                @RequestParam("name") String name,
-                @RequestParam("mail") String mail,
-                @RequestParam("phone") String phone,
-                @RequestParam("address") String address,
-                @RequestParam("city") String city,
-                @RequestParam("num") String num,
-                ModelMap mm) {
-                mm.put("custID", id);
-                mm.put("customerList", customerService.getAll());
-		return "admin_console/customer_detail";
-	}
+    @RequestMapping(value = "/editCustomer", method = RequestMethod.GET)
+    public String editCustomer(ModelMap mm,
+            @RequestParam("id") String id, 
+            @RequestParam("name") String name,
+            @RequestParam("mail") String mail,
+            @RequestParam("phone") String phone,
+            @RequestParam("address") String address,
+            @RequestParam("city") String city,
+            @RequestParam("num") String num) {
+            mm.put("custID", id);
+            mm.put("customerList", customerService.getAll());
+            return "admin_console/customer_detail";
+    }
         
         
-        @RequestMapping(value = "/category", method = RequestMethod.GET)
-        public String categoryConsole(ModelMap mm) {
-            mm.put("categoryList", categoryService.getAll());
-            return "admin_console/category";
-        }
+    @RequestMapping(value = "/product", method = RequestMethod.GET)
+    public String productConsole(ModelMap mm) {
+        mm.put("productList", productService.getAll());
+        return "admin_console/product";
+    }
+        
+   @RequestMapping(value = "/showSODetail", method = RequestMethod.GET)
+    public String showSODetail(@RequestParam("id") String id, ModelMap mm) {
+            mm.put("test", id);
+            System.out.println("****************************************");
+            System.out.println("****************************************");
+            System.out.println(id);
+            System.out.println("****************************************");
+            System.out.println("****************************************");
+            return "admin_console/customer";
+    }
+        
+    @RequestMapping(value = "/category", method = RequestMethod.GET)
+    public String categoryConsole(ModelMap mm) {
+        mm.put("categoryList", categoryService.getAll());
+        return "admin_console/category";
+    }
         
         
         
         
-	@RequestMapping(value = "/member", method = RequestMethod.GET)
-	public String memberConsole(ModelMap mm) {
-		mm.put("memberList", memberService.getAll());
-		return "admin_console/member";
-	}
+    @RequestMapping(value = "/member", method = RequestMethod.GET)
+    public String memberConsole(ModelMap mm) {
+            mm.put("memberList", memberService.getAll());
+            return "admin_console/member";
+    }
+
         
         
         
-        
-	@RequestMapping(value = "/order", method = RequestMethod.GET)
-	public String orderConsole(ModelMap mm) {
-		mm.put("orderList", orderService.getAll());
-		return "admin_console/order";
-	}
+    @RequestMapping(value = "/order", method = RequestMethod.GET)
+    public String orderConsole(ModelMap mm) {
+            mm.put("orderList", orderService.getAll());
+            return "admin_console/order";
+    }
 	
 }

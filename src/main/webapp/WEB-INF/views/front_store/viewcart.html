@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layouts/front_store">
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+	<div class="container" layout:fragment="content">
+		<div class="row" th:switch="${itemMap.size()}">
+			<div class="col-xs-12 col-md-12" th:case="0">
+				<div class="jumbotron">
+					<h1>Thông tin đơn hàng</h1>
+					<p>Không tồn tại đơn hàng này</p>
+					<p><a th:href="@{/}" class="btn btn-warning">Mua hàng</a></p>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-12" th:case="*">
+				<div class="jumbotron">
+					<h1>Thông tin đơn hàng</h1>
+                                        <p th:text ="|Đơn hàng có tổng cộng ${numOfItems} món hàng|"/>
+                                        <p th:text ="|Trạng thái đơn hàng: |"/>
+				</div>
+			</div>
+		</div>
+		<div class="row" th:unless="${itemMap.isEmpty()}">
+			<div class="col-xs-12 col-md-4">
+				<div class="jumbotron">
+					<h4 th:text="|Subtotal: ${subTotal} Đồng|"></h4>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<div class="table-responsive">
+					<table class="table table-condensed">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Tên</th>
+								<th>Giá</th>
+								<th>Số lượng</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="item : ${itemMap.entrySet()}">
+								<td><img th:src="@{|/resources/upload/products/${item.key.getName()}.png|}" /></td>
+								<td th:text="${item.key.getName()}"></td>
+								<td th:text="|${item.key.getPrice()} Đồng|"></td>
+								<td th:text="${item.value}"/>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

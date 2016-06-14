@@ -3,9 +3,7 @@
 	  xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
 	  layout:decorator="layouts/admin_console">
-<head>
-    <meta charset="utf-8" />
-</head>
+
 <body>
 	<div id="page-wrapper" layout:fragment="content">
 		<div class="row">
@@ -19,6 +17,7 @@
                                 <li><a th:href="@{/admin/category}"><span class="glyphicon glyphicon-list"></span>Danh sách</a></li>
                                 <li><a th:href="@{/admin/insertCategory}"><span class="glyphicon glyphicon-plus"></span>Thêm</a></li>
                             </ul>
+                            <button type="button" class="btn btn-default btn-sm" onclick="addRow('dataTable')"><span class="glyphicon glyphicon-plus"></span>Thêm</button>
 			</div>
 		</div>
 		<div class="row">
