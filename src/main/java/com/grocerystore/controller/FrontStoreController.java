@@ -49,6 +49,8 @@ public class FrontStoreController {
         mm.put("productList", productService.getByCategoryId(id));
         mm.put("categoryList", categoryService.getAll());
         mm.put("id", id);
+        productService.haha();
+        orderService.getCustomerOrder(123);
         return "front_store/category";
     }
 
