@@ -15,11 +15,11 @@
 		</div>
                 <div class="row">
 			<div class="col-lg-12">
-                            <button id="ad_insert" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span>Thêm</button>
-                            <button id="ad_edit" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span>Sửa</button>
-                            <button id="ad_delete" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span>Xóa</button>
+                            <ul class="nav navbar-nav">
+                                <li><a th:href="@{/admin/customer}"><span class="glyphicon glyphicon-list"></span>Danh sách</a></li>
+                                <li><a th:href="@{/admin/insertCustomer}"><span class="glyphicon glyphicon-plus"></span>Thêm</a></li>
+                            </ul>
 			</div>
-                        <p th:text="${test}"></p>
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
@@ -35,17 +35,20 @@
 										<th>Địa chỉ</th>
 										<th>Mã vùng</th>
 										<th>Thẻ tín dụng</th>
+                                                                                <th></th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="odd gradeX" th:each="customer : ${customerList}">
+									<tr class="gradeX" th:each="customer : ${customerList}" th:id="${customer.id}">
 										<td th:text="${customer.name}"></td>
 										<td th:text="${customer.phone}"></td>
 										<td th:text="${customer.email}"></td>
 										<td th:text="${customer.address}"></td>
 										<td th:text="${customer.cityRegion}"></td>
 										<td th:text="${customer.ccNumber}"></td>
-									</tr>
+                                                                                <td><button class="btn"><a th:href="|@{/admin/custdetail}?id=${customer.id}|"><span class="glyphicon glyphicon-pencil"></span> Sửa</a></button></td>
+                                                                                <td><button class="btn"><a th:href="|@{/admin/custdelete}?id=${customer.id}|"><span class="glyphicon glyphicon-remove"></span> Xóa</a></button></td>
+                                                                        </tr>
 								</tbody>
 							</table>
 						</div>

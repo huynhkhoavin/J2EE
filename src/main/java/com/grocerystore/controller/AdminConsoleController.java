@@ -56,15 +56,45 @@ public class AdminConsoleController {
             return "admin_console/customer";
         }
         
-        @RequestMapping(value = "/showSODetail", method = RequestMethod.GET)
-	public String showSODetail(@RequestParam("id") String id, ModelMap mm) {
-		mm.put("test", id);
+        @RequestMapping(value = "/insertCustomer", method = RequestMethod.GET)
+	public String insertCustomer(ModelMap mm) {
+                mm.put("customerList", customerService.getAll());
+		return "admin_console/customer_insert";
+	}
+        
+        @RequestMapping(value = "/custdetail", method = RequestMethod.GET)
+	public String customerDetail(@RequestParam("id") Integer id, ModelMap mm) {
+                mm.put("custID", id);
+                mm.put("customerList", customerService.getAll());
+                mm.put("cust",customerService.getById(id));
+		return "admin_console/customer_detail";
+	}
+        
+        @RequestMapping(value = "/custdelete", method = RequestMethod.GET)
+        public String custdelete(@RequestParam("id") Integer id, ModelMap mm) {
+                mm.put("customerList", customerService.getAll());
+		return "admin_console/customer";
+	}
+        
+        @RequestMapping(value = "/editCustomer", method = RequestMethod.GET)
+	public String editCustomer(
+                @RequestParam("id") String id, 
+                @RequestParam("name") String name,
+                @RequestParam("mail") String mail,
+                @RequestParam("phone") String phone,
+                @RequestParam("address") String address,
+                @RequestParam("city") String city,
+                @RequestParam("num") String num,
+                ModelMap mm) {
+//		mm.put("test", id);
                 System.out.println("****************************************");
                 System.out.println("****************************************");
                 System.out.println(id);
                 System.out.println("****************************************");
                 System.out.println("****************************************");
-		return "admin_console/customer";
+                mm.put("custID", id);
+                mm.put("customerList", customerService.getAll());
+		return "admin_console/customer_edit";
 	}
         
         

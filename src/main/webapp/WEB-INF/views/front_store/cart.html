@@ -56,7 +56,7 @@
 							<tr th:each="item : ${itemMap.entrySet()}">
 								<td><img th:src="@{|/resources/upload/products/${item.key.getName()}.png|}" /></td>
 								<td th:text="${item.key.getName()}"></td>
-								<td th:text="|${item.key.getPrice()} Đồng"></td>
+								<td th:text="|${item.key.getPrice()} Đồng|"></td>
 								<td>
 									<form th:action="@{/updateCart}" method="POST" class="form-inline">
 										<div class="form-group">
