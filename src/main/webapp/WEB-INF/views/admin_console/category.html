@@ -15,9 +15,10 @@
 		</div>
                 <div class="row">
 			<div class="col-lg-12">
-                            <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span>Thêm</button>
-                            <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span>Sửa</button>
-                            <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span>Xóa</button>
+                            <ul class="nav navbar-nav">
+                                <li><a th:href="@{/admin/category}"><span class="glyphicon glyphicon-list"></span>Danh sách</a></li>
+                                <li><a th:href="@{/admin/insertCategory}"><span class="glyphicon glyphicon-plus"></span>Thêm</a></li>
+                            </ul>
 			</div>
 		</div>
 		<div class="row">
@@ -35,7 +36,8 @@
 								<tbody>
 									<tr class="odd gradeX" th:each="category : ${categoryList}">
 										<td th:text="${category.name}"></td>
-										
+										<td><button class="btn btn-default btn-sm"><a th:href="|@{/admin/catdetail}?id=${category.id}|"><span class="glyphicon glyphicon-pencil"></span> Sửa</a></button></td>
+                                                                                <td><button class="btn btn-default btn-sm"><a th:href="|@{/admin/catdelete}?id=${category.id}|"><span class="glyphicon glyphicon-remove"></span> Xóa</a></button></td>
 									</tr>
 								</tbody>
 							</table>

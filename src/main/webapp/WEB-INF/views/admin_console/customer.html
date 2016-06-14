@@ -35,7 +35,6 @@
 										<th>Địa chỉ</th>
 										<th>Mã vùng</th>
 										<th>Thẻ tín dụng</th>
-                                                                                <th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -46,8 +45,8 @@
 										<td th:text="${customer.address}"></td>
 										<td th:text="${customer.cityRegion}"></td>
 										<td th:text="${customer.ccNumber}"></td>
-                                                                                <td><button class="btn"><a th:href="|@{/admin/custdetail}?id=${customer.id}|"><span class="glyphicon glyphicon-pencil"></span> Sửa</a></button></td>
-                                                                                <td><button class="btn"><a th:href="|@{/admin/custdelete}?id=${customer.id}|"><span class="glyphicon glyphicon-remove"></span> Xóa</a></button></td>
+                                                                                <td><button class="btn btn-default btn-sm"><a th:href="|@{/admin/custdetail}?id=${customer.id}|"><span class="glyphicon glyphicon-pencil"></span> Sửa</a></button></td>
+                                                                                <td><button class="btn btn-default btn-sm"><a th:href="|@{/admin/custdelete}?id=${customer.id}|"><span class="glyphicon glyphicon-remove"></span> Xóa</a></button></td>
                                                                         </tr>
 								</tbody>
 							</table>

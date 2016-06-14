@@ -86,15 +86,9 @@ public class AdminConsoleController {
                 @RequestParam("city") String city,
                 @RequestParam("num") String num,
                 ModelMap mm) {
-//		mm.put("test", id);
-                System.out.println("****************************************");
-                System.out.println("****************************************");
-                System.out.println(id);
-                System.out.println("****************************************");
-                System.out.println("****************************************");
                 mm.put("custID", id);
                 mm.put("customerList", customerService.getAll());
-		return "admin_console/customer_edit";
+		return "admin_console/customer_detail";
 	}
         
         
