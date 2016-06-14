@@ -18,5 +18,8 @@ public class MemberService {
 	public List<Member> getAll() {
 		return memberDao.findAll();
 	}
-
+        
+        public Member getById(Integer id) {
+            return memberDao.findOne(id);
+	}
 }

@@ -1,42 +1,51 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-	  layout:decorator="layouts/admin_console">
-<head>
-    <meta charset="utf-8" />
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layouts/admin_console">
+
 <body>
-	<div id="page-wrapper" layout:fragment="content">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">THÔNG TIN KHÁCH HÀNG</h1>
-			</div>
-		</div>
-                <div class="row">
-			<div class="col-lg-12">
-                            <ul class="nav navbar-nav">
-                                <li><a th:href="@{/admin/customer}"><span class="glyphicon glyphicon-list"></span>Danh sách</a></li>
-                                <li><a th:href="@{/admin/insertCustomer}"><span class="glyphicon glyphicon-plus"></span>Thêm</a></li>
-                            </ul>
-			</div>
-		</div>
-                                    
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul class="nav">
-                            <li>ID : <input id="ad_id" name="id"  type="text" th:value="${custID}" disabled="disabled"/></li>
-                            <li>Tên : <input id="ad_name" name="tên"  type="text" /></li>
-                            <li>Email : <input id="ad_mail" name="tên"  type="text" /></li>
-                            <li>Phone : <input id="ad_phone" name="tên"  type="text" /></li>
-                            <li>Address : <input id="ad_address" name="tên"  type="text" /></li>
-                            <li>City Region : <input id="ad_city_region" name="tên"  type="text" /></li>
-                            <li>Credit Card : <input id="ad_cc_number" name="tên"  type="text" /></li>
-                        </ul>
-                        <button id="cust_edit" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span>Sửa</button>
-                        <button id="cust_del" class="btn btn-default btn-sm"><a th:href="|@{/admin/custdelete}?id=${custID}|"><span class="glyphicon glyphicon-remove"></span> Xóa</a></button>
-                    </div>
-                </div>
-	</div>
+    <div id="page-wrapper" layout:fragment="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">SỬA THÔNG TIN KHÁCH HÀNG</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav navbar-nav">
+                    <li><a th:href="@{/admin/customer}"><span class="glyphicon glyphicon-list"></span>Danh sách</a></li>
+                    <li><a th:href="@{/admin/inscus}"><span class="glyphicon glyphicon-plus"></span>Thêm</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav">
+                    <li>ID :
+                        <input id="cus_id" name="id" type="text" th:value="${customerID}" disabled="disabled" />
+                    </li>
+                    <li>Tên :
+                        <input id="cus_name" name="tên" type="text" />
+                    </li>
+                    <li>Email :
+                        <input id="cus_mail" name="tên" type="text" />
+                    </li>
+                    <li>Phone :
+                        <input id="cus_phone" name="tên" type="text" />
+                    </li>
+                    <li>Address :
+                        <input id="cus_address" name="tên" type="text" />
+                    </li>
+                    <li>City Region :
+                        <input id="cus_city_region" name="tên" type="text" />
+                    </li>
+                    <li>Credit Card :
+                        <input id="cus_cc_number" name="tên" type="text" />
+                    </li>
+                </ul>
+                <button id="cus_edit" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span>Sửa</button>
+                <button id="cus_del" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span> Xóa</button>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
