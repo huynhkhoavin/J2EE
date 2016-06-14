@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -49,9 +50,9 @@ public class FrontStoreController {
         mm.put("productList", productService.getByCategoryId(id));
         mm.put("categoryList", categoryService.getAll());
         mm.put("id", id);
-        productService.haha();
-        orderService.getCustomerOrder(123);
+        
         return "front_store/category";
+        
     }
 
     /**
@@ -175,6 +176,24 @@ public class FrontStoreController {
     @ResponseBody
     public String getCartSize() {
         return cart.sumQuantity().toString();
+    }
+    
+    /**
+     * CRUD on shopping cart
+     */
+    
+    @RequestMapping(value = "/viewcart", method = RequestMethod.GET)
+    public String viewcart(@RequestParam("num") int confiNum, ModelMap mm) {
+        
+        CustomerOrder cus = orderService.getCustomerOrder(confiNum);
+        List<Object[]> ListDetail = orderedProductService.getAllProductOnOrder(orderService.getCustomerOrder(confiNum));
+        mm.put("CustomerOrder", cus);
+        mm.put("ListDetail", ListDetail);
+        Customer khachhang = customerService.getById(cus.getCustomer().getId());
+        mm.put("Customer", khachhang);
+        //truyen customerOrder, 
+        //truyen danh sach sang pham: lay id order -> tim product id, so luong. 
+        return "front_store/viewcart";
     }
 
 }

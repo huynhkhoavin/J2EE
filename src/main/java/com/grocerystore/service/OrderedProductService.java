@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -32,5 +33,20 @@ public class OrderedProductService {
 		}
 		orderedProductDao.save(set);
 	}
+        
+//        public List<Object[]> getAllOrderDetails(Integer CustomerOrderID){
+//            List<Object[]> hh = orderedProductDao.getOrderDetail(CustomerOrderID);
+//            System.out.println(hh.size());
+//            for(int i = 0; i < hh.size(); i++){
+//                System.out.println(hh.get(i)[0]);
+//                System.out.println(hh.get(i)[1]);
+//                System.out.println(hh.get(i)[2]);
+//            }
+//            return hh;
+//        }
+        
+        public List<Object[]> getAllProductOnOrder(CustomerOrder a){
+            return orderedProductDao.getOrderProduct(a);
+        }
 	
 }
