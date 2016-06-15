@@ -46,7 +46,7 @@
 						<tbody>
 							<tr th:each="item : ${itemMap.entrySet()}">
 								<td><img class="img-responsive" width="200" height="400" th:src="@{|/resources/upload/products/${item.key.getName()}.png|}" /></td>
-								<td th:text="${item.key.getName()}"></td>
+								<td th:text="${item.key.getDetail()}"></td>
 								<td th:text="|${item.key.getPrice()} Đồng|"></td>
 								<td>
 									<form th:action="@{/updateCart}" method="POST" class="form-inline">

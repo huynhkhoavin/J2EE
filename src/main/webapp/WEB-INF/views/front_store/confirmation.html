@@ -119,7 +119,7 @@
 						</thead>
 						<tbody>
 							<tr th:each="item : ${itemMap.entrySet()}">
-								<td class="text-center" th:text="${item.key.getName()}"></td>
+								<td class="text-center" th:text="${item.key.getDetail()}"></td>
 								<td class="text-center" th:text="|${item.key.getPrice()} Đồng|"></td>
 								<td class="text-center" th:text="${item.value}"></td>
 							</tr>
