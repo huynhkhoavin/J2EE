@@ -65,9 +65,9 @@
 								</thead>
 								<tbody>
 									<tr class="odd gradeX" th:each="product : ${productList}">
-										<td th:text="${product.name}"></td>
-										<td th:text="${product.price}"></td>
-                                                                                <td th:text="${product.description}"></td>
+										<td th:text="${product[0]}"></td>
+										<td th:text="${product[1]}"></td>
+                                                                                <td th:text="${product[2]}"></td>
                                                                                 
 									</tr>
 								</tbody>

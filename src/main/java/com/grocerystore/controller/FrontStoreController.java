@@ -50,7 +50,7 @@ public class FrontStoreController {
         mm.put("categoryList", categoryService.getAll());
         mm.put("id", id);
         productService.haha();
-        orderService.getCustomerOrder(123);
+        //orderService.getCustomerOrder(123);
         return "front_store/category";
     }
 

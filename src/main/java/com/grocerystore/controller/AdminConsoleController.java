@@ -96,7 +96,7 @@ public class AdminConsoleController {
         
     @RequestMapping(value = "/product", method = RequestMethod.GET)
     public String productConsole(ModelMap mm) {
-        mm.put("productList", productService.getAll());
+        mm.put("productList", productService.haha());
         return "admin_console/product";
     }
         

@@ -8,32 +8,27 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
 				<div class="jumbotron">
-					<h1>Cung cấp thực phẩm | Nâng tầm cuộc sống!</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<h1>Cung cấp thực phẩm | Nâng tầm cuộc sống!</h1>+
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-md-4">
-				<div class="jumbotron">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Suspendisse dictum velit augue, pellentesque tincidunt nunc
-						convallis sed. Aliquam sit amet tempus quam. Vivamus sodales leo
-						dui.</p>
-				</div>
+<!--				<div class="jumbotron">
+					
+				</div>-->
 			</div>
 			<div class="col-xs-12 col-md-8">
 				<div class="row">
 					<div class="col-xs-12 col-md-6" th:each="category : ${categoryList}">
 						<div class="thumbnail">
 							<a th:href="@{/category(id=${category.id})}">
-							
-								<img class="img-responsive" th:src="@{|/resources/upload/categories/${category.name}.jpg|}" />
+                                                            <div class="thumbnail">
+                                                                <img class="img-responsive" th:src="@{|/resources/upload/categories/${category.name}.jpg|}" />
+                                                                <a th:text="${#strings.toUpperCase(category.name)}"></a>
+                                                            </div>
 							</a>
-							<div class="caption">
-								<h4 th:text="${#strings.toUpperCase(category.name)}"></h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-							</div>
+						
 						</div>
 					</div>
 				</div>

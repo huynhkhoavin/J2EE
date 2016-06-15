@@ -15,6 +15,6 @@ public interface ProductDao extends Repository<Product, Integer> {
         
         public List<Product> findAll();
         
-        @Query("select p.name, c.name from Product p, Category c where (p.category = c.id)")
-        public List<Object[]> getdef();
+        @Query("select p.detail,p.name,p.price, c.name from Product p, Category c where (p.category = c.id)")
+        List<Object[]> getdef();
 }

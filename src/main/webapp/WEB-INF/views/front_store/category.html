@@ -9,28 +9,18 @@
             <div class="row">
                 <div class="col-xs-12 col-md-12">
                     <div class="jumbotron">
-                        <h1>Cung cấp thực phẩm | Nâng tầm cuộc sống!</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h1>Cung cấp các loại bánh| - Bánh Kem - Bánh Mì</h1>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-md-3">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="dropdown" th:each="category : ${categoryList}" th:class="${id} == ${category.id} ? 'active'">
-                            <a class="dropdown-toggle" data-toggle="dropdown" th:text="${#strings.toUpperCase(category.name)}"><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li th:each="category : ${categoryList}" th:class="${id} == ${category.id} ? 'active'">
-                                    <a th:href="@{/category(id=${category.id})}" th:text="${#strings.toUpperCase(category.name)}"></a>
-                                </li>
-                            </ul>  
-                        </li>
-                    </ul>
-                </div>
-
-
-
-
+				<ul class="nav nav-pills nav-stacked">
+					<li th:each="category : ${categoryList}" th:class="${id} == ${category.id} ? 'active'">
+						<a th:href="@{/category(id=${category.id})}" th:text="${#strings.toUpperCase(category.name)}"></a>
+					</li>
+				</ul>
+			</div>
                 <div class="col-xs-12 col-md-9">
                     <div class="row">
                         <div class="col-xs-12 col-md-3" th:each="product : ${productList}">
@@ -38,10 +28,10 @@
                                 <img class="img-responsive" th:src="@{|/resources/upload/products/${product.name}.png|}" />
                                 <div class="caption">
                                     <p>
-                                        <b>Tên:</b> <span th:text="${product.name}"></span>
+                                        <b>Tên</b> <span th:text="${product.detail}"></span>
                                     </p>
                                     <p>
-                                        <b>Giá:</b> <span th:text="|${product.price} Đồng|"></span>
+                                        <b>Giá</b> <span th:text="|${product.price} Đồng|"></span>
                                     </p>
                                     <p>
                                         <a th:title="|addItem::${product.id}|" th:href="@{/addToCart(id=${product.id})}" class="btn btn-primary">

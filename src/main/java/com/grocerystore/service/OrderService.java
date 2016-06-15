@@ -39,13 +39,13 @@ public class OrderService {
 		return orderDao.findAll();
 	}
         
-        public void getCustomerOrder(int ConfiNum)
-        {
-            CustomerOrder ao = orderDao.findByConfNumber(285434339);
-            System.out.println(ao.getAmount());
-            
-            System.out.println(orderDao.findabc().size());
-        }
+//        public void getCustomerOrder(int ConfiNum)
+//        {
+//            CustomerOrder ao = orderDao.findByConfNumber(285434339);
+//            System.out.println(ao.getAmount());
+//            
+//            System.out.println(orderDao.findabc().size());
+//        }
 	
 //        public void getByAllInformation(){
 //            List<CustomerOrder> orders = orderDao.getByCustomerOntable();
