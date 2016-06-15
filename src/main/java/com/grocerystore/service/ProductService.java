@@ -31,12 +31,15 @@ public class ProductService {
             productDao.save(a);
         }
         
-        public void haha(){
+        public List<Object[]> haha(){
             List<Object[]> haha = productDao.getdef();
-            for(int i = 0; i < haha.size(); i++)
-            {
-                System.out.println(haha.get(i)[0].toString());
+            System.out.println("-------------------");
+            System.out.println(haha.size());
+            System.out.println("-------------------");
+            
+            for(int i = 0; i < haha.size(); i++){
                 System.out.println(haha.get(i)[1].toString());
             }
+            return haha;
         }
 }

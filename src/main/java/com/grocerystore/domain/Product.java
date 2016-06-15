@@ -23,27 +23,30 @@ public class Product implements java.io.Serializable {
 	private BigDecimal price;
 	private String description;
 	private Date lastUpdate;
+        private String detail;
 	private Set<OrderedProduct> orderedProducts = new HashSet<OrderedProduct>(0);
 
 	public Product() {
 	}
 
 	public Product(Category category, String name, BigDecimal price,
-			Date lastUpdate) {
+			Date lastUpdate, String detail) {
 		this.category = category;
 		this.name = name;
 		this.price = price;
 		this.lastUpdate = lastUpdate;
+                this.detail = detail;
 	}
 
 	public Product(Category category, String name, BigDecimal price,
-			String description, Date lastUpdate, Set<OrderedProduct> orderedProducts) {
+			String description, Date lastUpdate, Set<OrderedProduct> orderedProducts, String detail) {
 		this.category = category;
 		this.name = name;
 		this.price = price;
 		this.description = description;
 		this.lastUpdate = lastUpdate;
 		this.orderedProducts = orderedProducts;
+                this.detail = detail;
 	}
 
 	@Id
@@ -66,7 +69,14 @@ public class Product implements java.io.Serializable {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-
+        @Column(name = "detail", nullable = false, length =45 )
+        public String getDetail(){
+            return this.detail;
+        }
+        public void setDetail(String detail)
+        {
+            this.detail = detail;
+        }
 	@Column(name = "name", nullable = false, length = 45)
 	public String getName() {
 		return this.name;
