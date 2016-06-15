@@ -14,9 +14,9 @@ public class RegionHashMap {
 	
 	public RegionHashMap() {
 		cityRegion = new LinkedHashMap<String, String>();
-		cityRegion.put("PG", "Prague");
-		cityRegion.put("BN", "Benarl");
-		cityRegion.put("HS", "Hassen");
+		cityRegion.put("PG", "Miền Bắc");
+		cityRegion.put("BN", "Miền Trung");
+		cityRegion.put("HS", "Miền Nam");
 	}
 
 	public Map<String, String> getCityRegion() {

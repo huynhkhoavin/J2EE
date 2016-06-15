@@ -12,10 +12,9 @@ public interface OrderDao extends Repository<CustomerOrder, Integer> {
 	
 	CustomerOrder save(CustomerOrder order);
         
-        @Query("select c from CustomerOrder c where c.confirmationNumber = ?1")
-        CustomerOrder findByConfNumber(int ConfiNumber);
-        
         @Query("select c from CustomerOrder c")
         List<CustomerOrder> findabc();
 	
+        @Query("select c from CustomerOrder c where c.confirmationNumber = ?1")
+        CustomerOrder findByConfNumber(int ConfiNumber);
 }

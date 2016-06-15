@@ -8,11 +8,11 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
 				<div class="jumbotron">
-					<h1>Cung cấp thực phẩm | Nâng tầm cuộc sống!</h1>
-					<p><strong>Your order has been successfully processed and will be delivered within 24 hours.</strong></p>
-					<p>Please keep a note on your confirmation number.</p>
-					<p>If you have any concerns, feel free to contact us.</p>
-					<p>Thank you for shopping!</p>
+					<h1>Cung cấp tất cả bánh kem, bánh mì, Chocolate</h1>
+					<p><strong>Đơn hàng đã được đặt mua thành công và sẽ được giao trong vòng 24h</strong></p>
+					<p>Xin giữ lại mã xác nhận để xem lại đơn hàng</p>
+					<p></p>
+					<p></p>
 				</div>
 			</div>
 		</div>
@@ -120,7 +120,7 @@
 						<tbody>
 							<tr th:each="item : ${itemMap.entrySet()}">
 								<td class="text-center" th:text="${item.key.getName()}"></td>
-								<td class="text-center" th:text="|${item.key.getPrice()} &#36;|"></td>
+								<td class="text-center" th:text="|${item.key.getPrice()} Đồng|"></td>
 								<td class="text-center" th:text="${item.value}"></td>
 							</tr>
 						</tbody>

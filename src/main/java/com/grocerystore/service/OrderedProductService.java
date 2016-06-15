@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -32,5 +33,9 @@ public class OrderedProductService {
 		}
 		orderedProductDao.save(set);
 	}
+        
+        public List<Object[]> getAllProductOnOrder(CustomerOrder a){
+            return orderedProductDao.getOrderProduct(a);
+        }
 	
 }

@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -175,6 +176,26 @@ public class FrontStoreController {
     @ResponseBody
     public String getCartSize() {
         return cart.sumQuantity().toString();
+    }
+    
+    @RequestMapping(value = "/viewcart", method = RequestMethod.GET)
+    public String viewcart(@RequestParam("num") int confiNum, ModelMap mm) {
+        
+        CustomerOrder cus = orderService.getCustomerOrder(confiNum);
+        if(cus != null){
+        List<Object[]> ListDetail = orderedProductService.getAllProductOnOrder(orderService.getCustomerOrder(confiNum));
+        mm.put("CustomerOrder", cus);
+        mm.put("ListDetail", ListDetail);
+        Customer khachhang = customerService.getById(cus.getCustomer().getId());
+        mm.put("Customer", khachhang);
+        return "front_store/viewcart";
+        }
+        else{
+        List<Object[]> ListDetail = orderedProductService.getAllProductOnOrder(orderService.getCustomerOrder(confiNum));
+        mm.put("ListDetail", ListDetail);
+        return "front_store/viewcart";
+        }
+        
     }
 
 }

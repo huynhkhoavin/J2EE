@@ -51,4 +51,10 @@ public class OrderService {
 //            List<CustomerOrder> orders = orderDao.getByCustomerOntable();
 //            System.out.println(orders.size());
 //        }
+        
+        public CustomerOrder getCustomerOrder(int ConfiNum)
+        {
+            CustomerOrder ao = orderDao.findByConfNumber(ConfiNum);
+            return ao;
+        }
 }

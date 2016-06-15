@@ -8,22 +8,16 @@
 		<div class="row" th:switch="${itemMap.size()}">
 			<div class="col-xs-12 col-md-12" th:case="0">
 				<div class="jumbotron">
-					<h1>Cung cấp thực phẩm | Nâng tầm cuộc sống!</h1>
-					<p>There's no item in your shopping cart!</p>
+					<h1>Cung cấp tất cả bánh kem, bánh mì, Chocolate</h1>
+					<p>Không có sản phẩm nào trong giỏ hàng!</p>
 					<p><a th:href="@{/}" class="btn btn-warning">Tiếp tục Mua</a></p>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-12" th:case="*">
 				<div class="jumbotron">
-					<h1>Affable Spring Bean!</h1>
-                                        <table>
-                                            <tr>
-                                                <td>Your shopping cart contains</td>
-                                                <td th:text="${numOfItems}"></td>
-                                                <td>items</td>
-                                            </tr>
-                                        </table>
-					<p>If you want to remove any item, just update its quantity to 0.</p>
+					<h1></h1>
+                                        <p th:text="|Giỏ hàng có ${numOfItems} sản phẩm|"/>
+					<p>Nếu bạn muốn xóa sản phẩm khỏi đơn hàng, chỉ cần cập nhật về 0</p>
 					<p>
 						<a th:href="@{/}" class="btn btn-info">Tiếp tục Mua</a>
 						<a th:href="@{/checkout}" class="btn btn-warning">Thanh toán</a>
@@ -51,7 +45,7 @@
 						</thead>
 						<tbody>
 							<tr th:each="item : ${itemMap.entrySet()}">
-								<td><img th:src="@{|/resources/upload/products/${item.key.getName()}.png|}" /></td>
+								<td><img class="img-responsive" width="200" height="400" th:src="@{|/resources/upload/products/${item.key.getName()}.png|}" /></td>
 								<td th:text="${item.key.getName()}"></td>
 								<td th:text="|${item.key.getPrice()} Đồng|"></td>
 								<td>
