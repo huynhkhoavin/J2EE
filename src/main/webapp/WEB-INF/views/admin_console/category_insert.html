@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layouts/admin_console">
+
+<body>
+    <div id="page-wrapper" layout:fragment="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">DANH MỤC MỚI</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav navbar-nav">
+                    <li><a th:href="@{/admin/category}"><span class="glyphicon glyphicon-list"></span>Danh sách</a></li>
+                    <li><a th:href="@{/admin/inscat}"><span class="glyphicon glyphicon-plus"></span>Thêm</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <ul class="nav">
+                    <li>
+                        <p>ID : </p>
+                        <input id="cat_id" name="id" type="text" disabled="disabled" />
+                    </li>
+                    <li>
+                        <p>Tên : </p>
+                        <input id="cat_name" name="Tên" type="text" />
+                    </li>
+                </ul>
+                <button id="cat_edit" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span>Sửa</button>
+                <button id="cat_del" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span> Xóa</button>
+            </div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
+</body>
+
+</html>

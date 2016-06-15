@@ -305,3 +305,10 @@ table.dataTable thead .sorting:after {
 .show-grid {
     margin: 15px 0;
 }
+
+.nav >li{
+    margin: 10px 0 0 10px;
+}
+.nav >li > input{
+    float: right;
+}
